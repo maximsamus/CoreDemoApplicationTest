@@ -2,15 +2,14 @@
 //  TaskListViewController.swift
 //  CoreDemoApp
 //
-//  Created by Alexey Efimov on 18.04.2022.
+//  Created by Максим Самусь on 26.04.2022.
 //
 
 import UIKit
-import CoreData
+//import CoreData
 
 class TaskListViewController: UITableViewController {
     
-    private let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private var taskList: [Task] = []
     private let cellID = "task"
@@ -54,12 +53,20 @@ class TaskListViewController: UITableViewController {
     }
     
     private func fetchData() {
-        let fetchRequest = Task.fetchRequest()
-        do {
-            taskList = try viewContext.fetch(fetchRequest)
-        } catch {
-            print(error.localizedDescription)
+        StorageManager.shared.fetchData { result in
+            switch result {
+            case .success(let tasks):
+                self.taskList = tasks
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
+//        let fetchRequest = Task.fetchRequest()
+//        do {
+//            taskList = try viewContext.fetch(fetchRequest)
+//        } catch {
+//            print(error.localizedDescription)
+//        }
     }
     
     private func showAlert(with title: String, and message: String) {
@@ -78,20 +85,28 @@ class TaskListViewController: UITableViewController {
     }
     
     private func save(_ taskName: String) {
-        let task = Task(context: viewContext)
-        task.title = taskName
-        taskList.append(task)
-        
-        let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
-        tableView.insertRows(at: [cellIndex], with: .automatic)
-        
-        if viewContext.hasChanges {
-            do {
-                try viewContext.save()
-            } catch {
-                print(error.localizedDescription)
-            }
+        StorageManager.shared.create(taskName) { task in
+            self.taskList.append(task)
+            self.tableView.insertRows(
+                at: [IndexPath(row: self.taskList.count - 1, section: 0)],
+                with: .automatic
+            )
         }
+        
+//        let task = Task(context: viewContext)
+//        task.title = taskName
+//        taskList.append(task)
+//
+//        let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
+//        tableView.insertRows(at: [cellIndex], with: .automatic)
+//
+//        if viewContext.hasChanges {
+//            do {
+//                try viewContext.save()
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
     }
 }
 

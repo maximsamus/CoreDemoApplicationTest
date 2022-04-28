@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  CoreDemoApp
 //
-//  Created by Alexey Efimov on 18.04.2022.
+//  Created by Максим Самусь on 26.04.2022.
 //
 
 import UIKit
@@ -46,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        StorageManager.shared.saveContext()
     }
 
 
