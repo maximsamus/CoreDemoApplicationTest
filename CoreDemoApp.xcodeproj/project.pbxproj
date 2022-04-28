@@ -13,6 +13,7 @@
 		A85E83FF280DD14900FB6B82 /* CoreDemoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A85E83FD280DD14900FB6B82 /* CoreDemoApp.xcdatamodeld */; };
 		A85E8401280DD14A00FB6B82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85E8400280DD14A00FB6B82 /* Assets.xcassets */; };
 		F7A447DA28181D7100E9DE0B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A447D928181D7100E9DE0B /* StorageManager.swift */; };
+		F7A447DC281AEB1900E9DE0B /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A447DB281AEB1900E9DE0B /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A85E8400280DD14A00FB6B82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A85E8405280DD14A00FB6B82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7A447D928181D7100E9DE0B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		F7A447DB281AEB1900E9DE0B /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				A85E83F8280DD14900FB6B82 /* TaskListViewController.swift */,
+				F7A447DB281AEB1900E9DE0B /* AlertController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				A85E83F5280DD14900FB6B82 /* AppDelegate.swift in Sources */,
 				F7A447DA28181D7100E9DE0B /* StorageManager.swift in Sources */,
 				A85E83F7280DD14900FB6B82 /* SceneDelegate.swift in Sources */,
+				F7A447DC281AEB1900E9DE0B /* AlertController.swift in Sources */,
 				A85E83FF280DD14900FB6B82 /* CoreDemoApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
